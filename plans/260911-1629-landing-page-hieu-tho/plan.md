@@ -1,6 +1,6 @@
 ---
 title: Landing page Dịch vụ xe du lịch Hiếu Thơ
-status: pending
+status: in-progress
 created: 2026-09-11
 mode: fast
 spec: docs/superpowers/specs/2026-09-11-landing-page-hieu-tho-design.md
