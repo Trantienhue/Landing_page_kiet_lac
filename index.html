@@ -143,18 +143,19 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 }
 
 /* ---------- 5. Ảnh đầu trang ---------- */
-.hero{position:relative;min-height:520px;height:88svh;max-height:720px;display:flex}
-@supports not (height:88svh){ .hero{height:88vh} }
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.hero{position:relative;height:50svh;min-height:260px;max-height:460px;overflow:hidden}
+@supports not (height:50svh){ .hero{height:50vh} }
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%}
 .hero-veil{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(14,14,16,.62) 0%,rgba(14,14,16,.28) 34%,rgba(14,14,16,.96) 88%);
+  background:linear-gradient(180deg,rgba(14,14,16,.42) 0%,rgba(14,14,16,0) 38%,rgba(14,14,16,.55) 78%,var(--bg) 100%);
 }
-.hero-in{position:relative;align-self:flex-end;width:100%;padding-block:0 40px}
-.hero .lbl{margin-bottom:12px}
-.hero h1{font-size:clamp(30px,8.5vw,56px);margin-bottom:14px}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero-sub{color:var(--muted);font-size:clamp(14px,3.6vw,17px);margin-bottom:24px;max-width:34ch}
+.hero-copy{padding-block:22px 34px}
+.hero-copy .lbl{margin-bottom:10px}
+.hero-copy h1{font-size:clamp(28px,7.5vw,48px);margin-bottom:12px}
+.hero-copy h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{color:var(--muted);font-size:clamp(14px,3.6vw,17px);margin-bottom:22px;max-width:44ch}
+@media (min-width:768px){ .hero{max-height:520px} .hero-copy{padding-block:32px 44px} }
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
 .hero-btns .btn{flex:1 1 auto;min-width:150px}
 @media (min-width:768px){ .hero-btns .btn{flex:0 0 auto;min-width:0} }
@@ -313,7 +314,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
          alt="Xe limousine Hyundai Solati 9 chỗ màu bạc của nhà xe Hiếu Thơ, chụp ban đêm với dải đèn LED xanh"
          width="1200" height="1600" fetchpriority="high" decoding="async">
     <div class="hero-veil"></div>
-    <div class="hero-in">
+  </section>
+
+  <div class="hero-copy">
       <div class="wrap">
         <p class="lbl">Dịch vụ xe du lịch Hiếu Thơ</p>
         <h1>Limousine 9 chỗ<br><em>hạng thương gia</em></h1>
@@ -332,8 +335,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
           </a>
         </div>
       </div>
-    </div>
-  </section>
+  </div>
   <span id="hero-sentinel" aria-hidden="true"></span>
 
   <div class="trust">
