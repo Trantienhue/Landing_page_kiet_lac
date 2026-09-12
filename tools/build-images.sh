@@ -46,8 +46,18 @@ for src in "$SRC_DIR"/*.jpg "$SRC_DIR"/*.jpeg "$SRC_DIR"/*.png; do
   name="$(basename "$src")"
   stem="${name%.*}"
 
+  # Cạnh dài của ảnh gốc. Ảnh nhỏ hơn cỡ đích thì bỏ qua cỡ đó,
+  # phóng to chỉ làm nhoè chữ mà file lại nặng thêm.
+  long_side="$(sips -g pixelWidth -g pixelHeight "$src" 2>/dev/null \
+    | awk '/pixelWidth/{w=$2} /pixelHeight/{h=$2} END{print (w>h?w:h)+0}')"
+
   for w in "${SIZES[@]}"; do
     dst="$OUT_DIR/${stem}-${w}.jpg"
+
+    if [[ -n "$long_side" && "$long_side" -gt 0 && "$long_side" -le "$w" ]]; then
+      skipped=$((skipped + 1))
+      continue
+    fi
 
     if [[ $FORCE -eq 0 && -f "$dst" && "$dst" -nt "$src" ]]; then
       skipped=$((skipped + 1))

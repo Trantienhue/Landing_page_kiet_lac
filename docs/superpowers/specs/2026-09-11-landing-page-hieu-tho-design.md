@@ -227,3 +227,21 @@ Trang coi là xong khi thoả toàn bộ các mục sau:
 ## 12. Ngoài phạm vi
 
 Không làm trong lần này: form đặt xe, bảng giá, bản tiếng Anh, bản đồ nhúng, trang blog, hệ quản trị nội dung, theo dõi chuyển đổi, và mọi trang phụ ngoài trang chính.
+
+## 13. Thay đổi sau khi duyệt
+
+Ghi lại để tài liệu khớp với trang thật.
+
+**2026-09-12 — Ảnh bìa.** Chủ xe gửi hai file mới là `images/cover.jpg` và `images/wedding.jpg`.
+
+- Ảnh bìa đổi từ ảnh limousine ban đêm sang `cover.jpg`, là banner thiết kế sẵn có tên nhà xe, năm sao, ba dòng xe và hotline. Banner hiện trọn khung theo tỉ lệ gốc 993 trên 604, không cắt, không kéo rộng quá 993 pixel, vì cắt hay phóng to đều làm hỏng phần chữ in trên banner.
+- Banner dùng thẳng file gốc, không qua `tools/build-images.sh`. File chỉ nặng 130 KB, nén thêm sẽ làm rỗ chữ. Nhờ vậy dung lượng tải lần đầu giảm từ khoảng 440 KB xuống khoảng 175 KB.
+- Khối chữ bỏ dòng nhãn "Dịch vụ xe du lịch Hiếu Thơ" vì banner đã ghi tên nhà xe ngay phía trên.
+- Thanh đầu trang chuyển thành nền đặc cố định. Trước đây nó trong suốt rồi mới đặc khi cuộn, hợp với ảnh chụp tràn viền, nhưng nay banner có chữ riêng nên để trong suốt sẽ chồng chữ lên nhau.
+- Ảnh chia sẻ khi dán liên kết cũng đổi sang `cover.jpg`, vì đây là ảnh ngang có đủ tên nhà xe và hotline.
+- `wedding.jpg` chụp cả dàn xe với xe hoa kết hoa đỏ đứng đầu, thêm vào đầu thư viện ảnh. Ảnh này lấp chỗ trống về xe hoa cưới hỏi đã nêu ở mục 6.4. Thư viện ảnh nay có 16 tấm.
+- `tools/build-images.sh` thêm quy tắc không phóng to: ảnh gốc nhỏ hơn cỡ đích thì bỏ qua cỡ đó.
+
+**Lưu ý chưa xử lý.** Banner in hai số hotline là 0888 666 373 và 0915 668 685, trong khi toàn bộ chữ trên trang chỉ dùng 0888 666 373 theo quyết định ở mục 3. Nếu muốn thống nhất thì hoặc sửa banner, hoặc thêm số thứ hai vào mục liên hệ.
+
+**2026-09-12 — Ảnh bìa nhỏ lại.** Trước khi có banner, ảnh bìa từng cao 88% màn hình. Chủ xe thấy quá lớn nên rút xuống một nửa màn hình và chuyển khối chữ xuống dưới ảnh thay vì đè lên ảnh.

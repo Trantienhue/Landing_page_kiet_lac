@@ -27,11 +27,11 @@
 <meta property="og:title" content="Cho thuê xe du lịch Quảng Bình Quảng Trị | Nhà xe Hiếu Thơ">
 <meta property="og:description" content="Limousine 9 chỗ hạng thương gia, xe 4, 7, 16, 29 chỗ. Đưa đón tham quan, tour dài ngày, cưới hỏi. Gọi 0888 666 373.">
 <!-- TEN_MIEN_CAN_DIEN: Zalo và Facebook cần đường dẫn tuyệt đối mới hiện được ảnh.
-     Khi có tên miền, đổi thành https://tenmien.com/images/optimized/IMG_4675-1600.jpg -->
-<meta property="og:image" content="images/optimized/IMG_4675-1600.jpg">
-<meta property="og:image:width" content="1600">
-<meta property="og:image:height" content="1200">
-<meta property="og:image:alt" content="Xe limousine Hyundai Solati 9 chỗ của nhà xe Hiếu Thơ đỗ trước khu du lịch Cửa Việt">
+     Khi có tên miền, đổi thành https://tenmien.com/images/cover.jpg -->
+<meta property="og:image" content="images/cover.jpg">
+<meta property="og:image:width" content="993">
+<meta property="og:image:height" content="604">
+<meta property="og:image:alt" content="Banner nhà xe Hiếu Thơ với ba dòng xe và số hotline">
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
@@ -118,18 +118,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .btn svg{width:18px;height:18px;flex:none}
 
 /* ---------- 4. Thanh đầu trang ---------- */
-#top-sentinel{position:absolute;top:0;height:1px;width:1px}
 #hero-sentinel{display:block;height:1px}
 
 .site-head{
   position:sticky;top:0;z-index:40;
-  background:transparent;
-  border-bottom:1px solid transparent;
-  transition:background .25s ease,border-color .25s ease,backdrop-filter .25s ease;
-}
-.site-head.scrolled{
   background:rgba(14,14,16,.92);
-  border-bottom-color:var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
   backdrop-filter:saturate(140%) blur(10px);
 }
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
@@ -142,20 +136,17 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   border:1px solid var(--line);border-radius:999px;padding:7px 14px;
 }
 
-/* ---------- 5. Ảnh đầu trang ---------- */
-.hero{position:relative;height:50svh;min-height:260px;max-height:460px;overflow:hidden}
-@supports not (height:50svh){ .hero{height:50vh} }
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%}
-.hero-veil{
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(14,14,16,.42) 0%,rgba(14,14,16,0) 38%,rgba(14,14,16,.55) 78%,var(--bg) 100%);
-}
-.hero-copy{padding-block:22px 34px}
-.hero-copy .lbl{margin-bottom:10px}
+/* ---------- 5. Ảnh bìa ----------
+   Banner đã có sẵn chữ và hotline, nên hiện trọn khung, tuyệt đối không cắt.
+   Không kéo rộng quá 993 pixel là bề ngang thật của ảnh, kéo nữa sẽ nhoè chữ. */
+.hero{background:#120F0C;display:grid;place-items:center}
+.hero-img{width:100%;max-width:993px;height:auto;aspect-ratio:993/604}
+
+.hero-copy{padding-block:26px 34px}
 .hero-copy h1{font-size:clamp(28px,7.5vw,48px);margin-bottom:12px}
 .hero-copy h1 em{font-style:normal;color:var(--gold)}
 .hero-sub{color:var(--muted);font-size:clamp(14px,3.6vw,17px);margin-bottom:22px;max-width:44ch}
-@media (min-width:768px){ .hero{max-height:520px} .hero-copy{padding-block:32px 44px} }
+@media (min-width:768px){ .hero-copy{padding-block:36px 44px} }
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
 .hero-btns .btn{flex:1 1 auto;min-width:150px}
 @media (min-width:768px){ .hero-btns .btn{flex:0 0 auto;min-width:0} }
@@ -297,9 +288,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 </head>
 
 <body>
-<span id="top-sentinel" aria-hidden="true"></span>
-
-<header class="site-head" id="siteHead">
+<header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top">HIẾU THƠ</a>
     <a class="head-tel" href="tel:+84888666373">0888 666 373</a>
@@ -310,15 +299,16 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 
   <!-- ===== Ảnh đầu trang ===== -->
   <section class="hero" id="hero">
-    <img class="hero-img" src="images/optimized/IMG_4678-1600.jpg"
-         alt="Xe limousine Hyundai Solati 9 chỗ màu bạc của nhà xe Hiếu Thơ, chụp ban đêm với dải đèn LED xanh"
-         width="1200" height="1600" fetchpriority="high" decoding="async">
-    <div class="hero-veil"></div>
+    <!-- Ảnh bìa dùng thẳng file gốc, không qua build-images.sh.
+         Đây là banner thiết kế sẵn chỉ rộng 993 pixel và chỉ nặng 130 KB,
+         nén lại nữa sẽ làm rỗ chữ NHÀ XE HIẾU THƠ và số hotline. -->
+    <img class="hero-img" src="images/cover.jpg"
+         alt="Banner nhà xe Hiếu Thơ với xe khách 29 chỗ, xe hoa cưới và xe limousine 9 chỗ, hotline 0888 666 373 và 0915 668 685"
+         width="993" height="604" fetchpriority="high" decoding="async">
   </section>
 
   <div class="hero-copy">
       <div class="wrap">
-        <p class="lbl">Dịch vụ xe du lịch Hiếu Thơ</p>
         <h1>Limousine 9 chỗ<br><em>hạng thương gia</em></h1>
         <p class="hero-sub">
           Cho thuê xe hợp đồng 4 · 7 · 16 · 29 chỗ<br>
@@ -543,6 +533,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       <p class="lead">Bấm vào ảnh để xem lớn.</p>
 
       <div class="gal" data-gallery>
+        <button data-full="images/optimized/wedding-1600.jpg" aria-label="Xem lớn ảnh cả dàn xe của nhà xe cùng xe hoa cưới"><img src="images/optimized/wedding-800.jpg" alt="Dàn xe của nhà xe Hiếu Thơ xếp hàng với xe hoa cưới kết hoa đỏ đứng đầu" width="800" height="800" loading="lazy" decoding="async"></button>
         <button data-full="images/optimized/IMG_4678-1600.jpg" aria-label="Xem lớn ảnh xe limousine Solati chụp ban đêm"><img src="images/optimized/IMG_4678-800.jpg" alt="Xe limousine Solati 9 chỗ chụp ban đêm với dải đèn LED xanh" width="800" height="800" loading="lazy" decoding="async"></button>
         <button data-full="images/optimized/IMG_4679-1600.jpg" aria-label="Xem lớn ảnh đuôi xe limousine Solati ban đêm"><img src="images/optimized/IMG_4679-800.jpg" alt="Đuôi xe limousine Solati của nhà xe Hiếu Thơ chụp lúc chạng vạng" width="800" height="800" loading="lazy" decoding="async"></button>
         <button data-full="images/optimized/IMG_4666-1600.jpg" aria-label="Xem lớn ảnh xe limousine Solati nhìn chính diện"><img src="images/optimized/IMG_4666-800.jpg" alt="Xe limousine Solati 9 chỗ màu bạc nhìn chính diện" width="800" height="800" loading="lazy" decoding="async"></button>
@@ -613,33 +604,28 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   "description": "Cho thuê xe du lịch, xe hợp đồng 4, 7, 16, 29 chỗ và limousine 9 chỗ tại Quảng Bình và Quảng Trị.",
   "telephone": "+84888666373",
   "areaServed": ["Quảng Bình", "Quảng Trị"],
-  "image": "images/optimized/IMG_4678-1600.jpg"
+  "image": "images/cover.jpg"
 }
 </script>
 
 <script>
 /* ============================================================
-   Khối 1 — Thanh đầu trang và thanh gọi nổi
-   Dùng một IntersectionObserver cho cả hai, không lắng nghe scroll.
+   Khối 1 — Thanh gọi nổi
+   Hiện sau khi khách cuộn qua ảnh bìa. Dùng IntersectionObserver
+   chứ không lắng nghe sự kiện cuộn, để không tính toán liên tục.
    ============================================================ */
 (function () {
-  var head = document.getElementById('siteHead');
   var bar = document.getElementById('callbar');
-  var topSentinel = document.getElementById('top-sentinel');
   var heroSentinel = document.getElementById('hero-sentinel');
-  if (!('IntersectionObserver' in window) || !head || !bar) return;
+  if (!('IntersectionObserver' in window) || !bar || !heroSentinel) return;
 
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
-      if (e.target === topSentinel) head.classList.toggle('scrolled', !e.isIntersecting);
-      if (e.target === heroSentinel) {
-        var passed = !e.isIntersecting && e.boundingClientRect.top < 0;
-        bar.classList.toggle('show', passed);
-      }
+      var passed = !e.isIntersecting && e.boundingClientRect.top < 0;
+      bar.classList.toggle('show', passed);
     });
   });
-  if (topSentinel) io.observe(topSentinel);
-  if (heroSentinel) io.observe(heroSentinel);
+  io.observe(heroSentinel);
 })();
 
 /* ============================================================

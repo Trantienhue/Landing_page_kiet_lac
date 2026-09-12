@@ -33,6 +33,12 @@ Mở `index.html`, dùng chức năng tìm chữ của trình soạn thảo:
 
 Script tạo hai cỡ cho mỗi ảnh: bản `-800.jpg` cho lưới và thẻ, bản `-1600.jpg` cho ảnh
 đầu trang và chế độ xem lớn. Chạy lại nhiều lần không sao, ảnh nào đã nén thì bỏ qua.
+Ảnh gốc nhỏ hơn cỡ đích thì script bỏ qua cỡ đó, vì phóng to chỉ làm nhoè.
+
+Riêng `images/cover.jpg` là banner thiết kế sẵn, trang dùng thẳng file gốc chứ không dùng
+bản nén, để chữ trên banner không bị rỗ. Muốn đổi banner thì thay đúng file đó và giữ
+tỉ lệ ngang dọc gần giống, nếu lệch nhiều thì sửa lại dòng `aspect-ratio` của `.hero-img`
+trong `index.html`.
 
 Muốn ảnh nét hơn, đánh đổi bằng dung lượng:
 
